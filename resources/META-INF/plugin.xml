@@ -1,0 +1,35 @@
+<idea-plugin version="2" url="https://github.com/sunary/options-completion-phpstorm-plugin">
+
+  <id>com.sunary.options-completion-phpstorm-plugin</id>
+  <name>Options completion plugin</name>
+  <version>1.0.0</version>
+  <vendor email="boss@aku.vn" url="http://www.aku.vn">Nhat Vo Van</vendor>
+
+  <description><![CDATA[
+<h1>Options completion plugin</h1>
+<br/>
+Parses phpDocumentor's hash description (https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#7-describing-hashes) and shows supported keys.
+<br/>
+
+<h2>Features:</h2>
+<br/>
+<ul>
+    <li>Complete array keys for function parameters</li>
+    <li>Show elements type in completion</li>
+    <li>Support enum</li>
+</ul>
+    ]]></description>
+
+  <change-notes>
+  </change-notes>
+
+  <idea-version since-build="107.105"/>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <completion.contributor language="any" implementationClass="main.com.sunary.CompletionContributor"/>
+  </extensions>
+
+  <depends>com.jetbrains.php</depends>
+  <depends>com.intellij.modules.platform</depends>
+
+</idea-plugin>
