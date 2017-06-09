@@ -1,7 +1,9 @@
-Options completion plugin
+Options completion PphStorm plugin
 ====================
 
 **Origin from:** [options-completion-phpstorm-plugin](https://github.com/woru/options-completion-phpstorm-plugin)
+
+**Download:** [https://plugins.jetbrains.com/plugin/9761-options-completion-plugin](https://plugins.jetbrains.com/plugin/9761-options-completion-plugin)
 
 
 Parses [phpDocumentor's hash description](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#examples-12) and shows supported keys.
