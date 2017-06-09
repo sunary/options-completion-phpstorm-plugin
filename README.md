@@ -1,4 +1,4 @@
-Options completion PphStorm plugin
+Options completion PhpStorm plugin
 ====================
 
 **Origin from:** [options-completion-phpstorm-plugin](https://github.com/woru/options-completion-phpstorm-plugin)
