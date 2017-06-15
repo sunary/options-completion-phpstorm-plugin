@@ -18,7 +18,7 @@ class Element {
      *     @var string $label    The display name for this element
      * }
      *
-     * @enum color {"red", "green", "blue"}
+     * @enum $color {"red", "green", "blue"}
      */
     public function __construct(array $options = array())
     {
