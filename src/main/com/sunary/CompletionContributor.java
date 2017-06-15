@@ -47,17 +47,20 @@ public class CompletionContributor extends com.intellij.codeInsight.completion.C
     }
 
     private void addCompletionForAssignmentOptions(AssignmentExpression assignment, CompletionResultSet result){
-        PhpDocComment docComment = resolveConstructor(assignment).getDocComment();
-        if (docComment != null){
-            List<OptionsParam> optionsParams = new PhpDocCommentParser().parseEnum(docComment.getText());
+        Method method = resolveConstructor(assignment);
+        if (method != null) {
+            PhpDocComment docComment = method.getDocComment();
+            if (docComment != null) {
+                List<OptionsParam> optionsParams = new PhpDocCommentParser().parseEnum(docComment.getText());
 
-            for (OptionsParam optionsParam : optionsParams){
-                if (optionsParam.getKey().equals(assignment.getVariable().getText()) ||
-                        optionsParam.getKey().equals(assignment.getVariable().getText().replace("$this->", ""))){
-                    for (String[] opt: optionsParam.getOptions()) {
-                        result.addElement(
-                                PrioritizedLookupElement.withPriority(
-                                        LookupElementBuilder.create(opt[0]).withTypeText(optionsParam.getKey() + " @enum"), Double.MAX_VALUE));
+                for (OptionsParam optionsParam : optionsParams) {
+                    if (optionsParam.getKey().equals(assignment.getVariable().getText()) ||
+                            optionsParam.getKey().equals(assignment.getVariable().getText().replace("$this->", ""))) {
+                        for (String[] opt : optionsParam.getOptions()) {
+                            result.addElement(
+                                    PrioritizedLookupElement.withPriority(
+                                            LookupElementBuilder.create(opt[0]).withTypeText(optionsParam.getKey() + " @enum"), Double.MAX_VALUE));
+                        }
                     }
                 }
             }
